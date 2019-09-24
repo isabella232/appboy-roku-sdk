@@ -147,7 +147,6 @@ function BrazeInit(config as object, messagePort as object)
       if m.cachedDeviceId = invalid then
         storage = Braze()._privateApi.storage
         stored_device_id = storage.braze_read_data(BrazeConstants().BRAZE_STORAGE.DEVICE_ID_KEY, BrazeConstants().BRAZE_STORAGE.DEVICE_ID_SECTION)
-        stored_device_id=invalid
         if stored_device_id = invalid then
           di = CreateObject("roDeviceInfo")
           stored_device_id = di.GetRandomUUID()
