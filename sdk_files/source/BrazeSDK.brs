@@ -114,7 +114,7 @@ function BrazeInit(config as object, messagePort as object)
         di = CreateObject("roDeviceInfo")
         m.cachedDeviceInfo = {
           model : di.GetModel(),
-          ad_tracking_enabled : di.IsRIDADisabled(),
+          ad_tracking_enabled : not di.IsRIDADisabled(),
           roku_ad_id : di.GetRIDA(),
           ' roku_channel_client_id : di.GetChannelClientId(),
           time_zone : di.GetTimeZone(),
@@ -439,7 +439,7 @@ function BrazeInit(config as object, messagePort as object)
       request.AddHeader("X-Braze-Api-Key", Braze()._privateApi.config[BrazeConstants().BRAZE_CONFIG_FIELDS.API_KEY])
       if (request.AsyncPostFromString(FormatJson(postJson)))
           while (true)
-              msg = wait(500, port)
+              msg = wait(0, port)
               if (type(msg) = "roUrlEvent")
                 code = msg.GetResponseCode()
                 return msg.getString()

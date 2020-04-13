@@ -1,3 +1,8 @@
+## 0.0.3
+
+##### Fixed
+- Fixed the polarity on `ad_tracking_enabled` sent to Braze via device info.
+
 ## 0.0.2
 
 ##### Fixed

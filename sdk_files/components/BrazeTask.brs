@@ -19,7 +19,7 @@ sub setupBrazeSdk()
       heartbeat_start = heartbeat_current_time
       m.braze.sessionheartbeat({})
     end if
-    msg = wait(50, m.port)
+    msg = wait(0, m.port)
     if msg <> invalid
       msg_type = type(msg)
       if msg_type = "roSGNodeEvent"
