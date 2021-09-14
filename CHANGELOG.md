@@ -1,3 +1,11 @@
+## 0.0.4
+
+##### Changed
+- Replaced the `GetModel` method with the more precise `GetModelDetails().ModelNumber`
+
+##### Fixed
+- Replaced the deprecated `GetVersion` Roku API method with `GetOSVersion`.
+
 ## 0.0.3
 
 ##### Fixed

@@ -112,14 +112,16 @@ function BrazeInit(config as object, messagePort as object)
     DeviceDataProvider : function() as object
       if m.cachedDeviceInfo = invalid then
         di = CreateObject("roDeviceInfo")
+        version = di.GetOsVersion()
+        version = version.major + "." + version.minor + "." + version.revision + "." + version.build
         m.cachedDeviceInfo = {
-          model : di.GetModel(),
+          model : di.GetModelDetails().ModelNumber,
           ad_tracking_enabled : not di.IsRIDADisabled(),
           roku_ad_id : di.GetRIDA(),
           ' roku_channel_client_id : di.GetChannelClientId(),
           time_zone : di.GetTimeZone(),
           locale : di.GetCurrentLocale(),
-          os_version : di.GetVersion()
+          os_version : version
         }
 
         ' Add the resolution
